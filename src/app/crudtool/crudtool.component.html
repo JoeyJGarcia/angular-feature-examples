@@ -1,0 +1,55 @@
+<div class='card'>
+    <div class='card-header'>
+        {{pageTitle}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+                Filter by:
+            </div>
+            <div class="col-md-4">
+                <input [(ngModel)]="rowFilter" type="text"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Filtered by: {{rowFilter}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class='table-responsive'>
+        <table class='table'>
+            <thead>
+                <tr>
+                    <th>
+                        <button (click)="toggleRows()" class='btn btn-primary'>{{ showRows ? 'Hide' : 'Show'}} Rows</button>
+                    </th>
+                    <th>
+                        Demo
+                    </th>
+                    <th>
+                        Method
+                    </th>
+                    <th>
+                        Pipe Example
+                    </th>
+                    <th>
+                        Font Awesome Example
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngIf="showRows">
+                <tr *ngFor="let demo of filteredDemos">
+                    <td>{{demo.name}}</td>
+                    <td>{{demo.demoLink}}</td>
+                    <td>{{demo.method | uppercase }}</td>
+                    <td>{{demo.exNum | currency:'USD':'$':'1.2-2'}}</td>
+                    <td><fa-icons
+                        [rating]='demo.exFA'
+                        (iconClicked)='onIconClicked($event)'
+                        ></fa-icons></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
