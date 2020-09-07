@@ -10,7 +10,8 @@ import { CrudTool } from './crudtool/crudtool.component';
 import { TitleCasePipe } from '../shared/title-case.pipe';
 import {FontAwesomeIcons } from '../shared/font-awesome-icons/font-awesome-icons.component';
 import { CrudtoolCreateComponent } from './crudtool/crudtool-create.component';
-import { WelcomeComponent } from "./home/welcome.component";
+import { WelcomeComponent } from './home/welcome.component';
+import { CrudtoolGuard } from './crudtool/crudtool.guard';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,12 @@ import { WelcomeComponent } from "./home/welcome.component";
     HttpClientModule,
     RouterModule.forRoot([
       {path: 'crudtool', component: CrudTool },
-      {path: 'crudtool/:name', component: CrudtoolCreateComponent },
+      {path: 'crudtool/:name',
+        canActivate: [CrudtoolGuard],
+        component: CrudtoolCreateComponent },
       {path: 'home', component: WelcomeComponent },
-      {path: '', component: WelcomeComponent },
+      {path: 'crudtool/create', component: CrudtoolCreateComponent },
+      {path: '', redirectTo: 'home', pathMatch: 'full' },
       {path: '**', redirectTo: 'home' },
     ])
   ],

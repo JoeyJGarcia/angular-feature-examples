@@ -1,28 +1,28 @@
         [
             {
                 "name": "Create",
-                "demoLink": "<a>Create</a>",
+                "demoLink": "create",
                 "method": "post",
                 "exNum": "1000000.32",
                 "exFA": 5
             },
             {
                 "name": "Update",
-                "demoLink": "<a>Update</a>",
+                "demoLink": "update",
                 "method": "put",
                 "exNum": "1000000.32",
                 "exFA": 4.5
             },
             {
                 "name": "Retrieve",
-                "demoLink": "<a>Retrieve</a>",
+                "demoLink": "retrieve",
                 "method": "get",
                 "exNum": "1000000.32",
                 "exFA": 4
             },
             {
                 "name": "Delete",
-                "demoLink": "<a>Delete</a>",
+                "demoLink": "delete",
                 "method": "delete",
                 "exNum": "1000000.32",
                 "exFA": 3

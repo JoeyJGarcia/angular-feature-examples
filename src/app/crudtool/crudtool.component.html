@@ -25,7 +25,7 @@
                         <button (click)="toggleRows()" class='btn btn-primary'>{{ showRows ? 'Hide' : 'Show'}} Rows</button>
                     </th>
                     <th>
-                        Demo
+                        Demo Link
                     </th>
                     <th>
                         Method
@@ -41,7 +41,7 @@
             <tbody *ngIf="showRows">
                 <tr *ngFor="let demo of filteredDemos">
                     <td>{{demo.name}}</td>
-                    <td>{{demo.demoLink}}</td>
+                    <td><a [routerLink]="['/crudtool', demo.demoLink]">{{demo.name}}</a></td>
                     <td>{{demo.method | uppercase }}</td>
                     <td>{{demo.exNum | currency:'USD':'$':'1.2-2'}}</td>
                     <td><fa-icons

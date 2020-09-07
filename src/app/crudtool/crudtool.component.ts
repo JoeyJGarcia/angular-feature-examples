@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from "./crudtool.service";
-import { ICrudDataModel } from "./ICrudDataModel";
+import { ICrudDataModel } from './ICrudDataModel';
 
 @Component({
     // selector: 'crudtool-home',
@@ -58,6 +58,6 @@ export class CrudTool implements OnInit {
                 this.filteredDemos = this.demos;
             },
             error: err => this.errMessage = err
-        })
+        });
     }
 }

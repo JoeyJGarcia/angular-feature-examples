@@ -25,6 +25,6 @@ export class CrudService {
 
     private handleError(err: HttpErrorResponse) {
         console.log(err.message);
-        return throwError(err.message);
+        return throwError(err);
     }
 }

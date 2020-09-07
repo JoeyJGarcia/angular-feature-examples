@@ -1,18 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ICrudDataModel } from './ICrudDataModel';
 
 @Component({
-  selector: 'app-crudtool-create',  templateUrl: './crudtool-create.component.html',
-  styleUrls: ['./crudtool-create.component.css']
+  templateUrl: './crudtool-create.component.html'
 })
 export class CrudtoolCreateComponent implements OnInit {
-  pageTitle: string = 'CRUD - Create Demo';
+  pageTitle: string = 'Action Name ';
   crudData: ICrudDataModel;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-  }
+    let name = this.route.snapshot.paramMap.get('name');
+    this.pageTitle += `: ${name}`;
+    this.crudData = {
+      "name": "Create",
+      "demoLink": "create",
+      "method": "post",
+      "exNum": "1000000.32",
+      "exFA": 5
+    };
+  };
 
+  onBack(): void {
+    this.router.navigate(['/crudtool'])
+  }
 }
